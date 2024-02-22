@@ -2,9 +2,7 @@
 using MagicVilla_Web.Services.IServices;
 using MasgicVilla_Utility;
 using Newtonsoft.Json;
-using System.Linq.Expressions;
 using System.Text;
-using System.Text.Json.Serialization;
 
 namespace MagicVilla_Web.Services
 {
@@ -22,7 +20,7 @@ namespace MagicVilla_Web.Services
         {
             try
             {
-                var client = httpClient.CreateClient("MagiicAPI");
+                var client = httpClient.CreateClient("MagicAPI");
                 HttpRequestMessage message = new();
                 message.Headers.Add("Accept", "application/json");
                 message.RequestUri = new Uri(apiRequest.Url);
@@ -68,6 +66,6 @@ namespace MagicVilla_Web.Services
                 return APIResponse;
             }
         }
-        
+
     }
 }
