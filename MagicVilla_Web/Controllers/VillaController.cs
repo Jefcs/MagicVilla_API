@@ -4,7 +4,6 @@ using MagicVilla_Web.Models.Dto;
 using MagicVilla_Web.Services.IServices;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using System.Reflection;
 
 namespace MagicVilla_Web.Controllers
 {
@@ -56,7 +55,7 @@ namespace MagicVilla_Web.Controllers
             var response = await _villaService.GetAsync<APIResponse>(villaId);
             if (response != null && response.IsSuccess)
             {
-                VillaDTO model = JsonConvert.DeserializeObject<VillaDTO>(Convert.ToString(response.Result));    
+                VillaDTO model = JsonConvert.DeserializeObject<VillaDTO>(Convert.ToString(response.Result));
                 return View(_mapper.Map<VillaUpdateDTO>(model));
             }
             return NotFound();
@@ -97,7 +96,7 @@ namespace MagicVilla_Web.Controllers
             {
                 return RedirectToAction(nameof(IndexVilla));
             }
-  
+
             return View(model);
         }
     }
