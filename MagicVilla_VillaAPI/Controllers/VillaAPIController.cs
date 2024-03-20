@@ -66,10 +66,10 @@ namespace MagicVilla_VillaAPI.Controllers
 
                 var villa = await _dbVilla.GetAsync(u => u.Id == id);
 
-                if (villa == null) 
-                { 
+                if (villa == null)
+                {
                     _response.StatusCode = HttpStatusCode.NotFound;
-                    return NotFound(_response); 
+                    return NotFound(_response);
                 }
 
                 _response.Result = _mapper.Map<VillaDTO>(villa);
@@ -85,7 +85,6 @@ namespace MagicVilla_VillaAPI.Controllers
         }
 
         [HttpPost]
-      
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

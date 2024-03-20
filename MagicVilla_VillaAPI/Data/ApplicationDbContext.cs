@@ -1,5 +1,6 @@
 ﻿using MagicVilla_VillaAPI.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace MagicVilla_VillaAPI.Data
 {
@@ -12,7 +13,25 @@ namespace MagicVilla_VillaAPI.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Villa>().HasData(
+            modelBuilder.Entity<LocalUser>().HasData(
+                new LocalUser()
+                {
+                    Id = 1,
+                    UserName = "jeff@jeff.com",
+                    Name = "Jeff",
+                    Password = "012345",
+                    Role = "admin"
+                },
+                 new LocalUser
+                 {
+                    Id = 2,
+                    UserName = "jeff@gmail.com",
+                    Name = "Jeffe",
+                    Password = "012345",
+                    Role = "admin"
+                });
+
+           modelBuilder.Entity<Villa>().HasData(
                 new Villa()
                 {
                     Id = 1,

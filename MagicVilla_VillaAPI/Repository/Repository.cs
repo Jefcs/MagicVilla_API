@@ -1,5 +1,4 @@
 ﻿using MagicVilla_VillaAPI.Data;
-using MagicVilla_VillaAPI.Models;
 using MagicVilla_VillaAPI.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
@@ -10,8 +9,8 @@ namespace MagicVilla_VillaAPI.Repository
     {
         private readonly ApplicationDbContext _db;
         internal DbSet<T> dbSet;
-        public Repository(ApplicationDbContext db) 
-        { 
+        public Repository(ApplicationDbContext db)
+        {
             _db = db;
             //_db.VillaNumbers.Include(u => u.Villa).ToList();
             this.dbSet = _db.Set<T>();
@@ -32,7 +31,7 @@ namespace MagicVilla_VillaAPI.Repository
 
             if (includeProperties != null)
             {
-                foreach (var includeProp in  includeProperties.Split(new char[] {','}, StringSplitOptions.RemoveEmptyEntries))
+                foreach (var includeProp in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
                 {
                     query = query.Include(includeProp);
                 }
